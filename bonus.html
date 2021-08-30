@@ -1,0 +1,27 @@
+<script>
+var shapeName=prompt("enter the name of the shape (circle , square , rectangle)");
+var area=0;
+
+if(shapeName=="circle")
+{  var r=Number(prompt("enter the radius"));
+    area=(Math.PI)*r**2;
+    alert("Area of circle is" +" "+ area );
+}
+
+if(shapeName=="square")
+{  var a=Number(prompt("enter the length"));
+    area=a**2;
+    alert("Area of square is" +" "+ area );
+}
+
+if(shapeName=="rectangle")
+{  var l=Number(prompt("enter the length"));
+   var w=Number(prompt("enter the width"));
+    area=l*w;
+    alert("Area of rectangle is" +" "+ area );
+}
+
+
+
+
+</script>

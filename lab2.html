@@ -1,0 +1,38 @@
+
+<script>  
+
+var contacts=[{Name:"sahar",phonenumber:012345},{Name:"Mohamed",phonenumber:76849},{Name:"Abeer",phonenumber:789458}];
+var exit=false;
+
+do{ 
+     var oper=prompt("enter the operation that you want to do (add , search or exit )");
+     if(oper=="add")
+     {          var contactName=prompt("enter the contact name");
+                var phoneNumber=Number(prompt("enter the contact number"));
+                var contact={ 
+                    Name:contactName,
+                    phonenumber:phoneNumber,
+                }
+                     contacts.push(contact);
+                     
+              }
+
+   
+else if(oper=="search"){ var contactName=prompt("enter the contact name");
+                       
+                         for(i=0;i<contacts.length;i++)
+                      {
+                       if(contacts[i].Name==contactName){
+                        alert(contacts[i].phonenumber);
+                            break;
+                         }
+                   }
+                    
+                }
+                else {
+                    exit=true;
+                }
+              
+        } while(!exit)
+
+</script>
