@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        button {
+            font-size: 40px;
+            width: 150px;
+        }
+    </style>
+    
+</head>
+    
+    <body> 
+    
+        <h1 id="calcScreen">0</h1>
+        <button onclick="writeNum(1)">1</button>
+        <button onclick="writeNum(2)">2</button>
+        <button onclick="writeNum(3)">3</button>
+        <br/>
+        <button onclick="writeNum(4)">4</button>
+        <button onclick="writeNum(5)">5</button>
+        <button onclick="writeNum(6)">6</button>
+        <br/>
+        <button onclick="writeNum(7)">7</button>
+        <button onclick="writeNum(8)">8</button>
+        <button onclick="writeNum(9)">9</button>
+        <br/>
+        <button onclick="writeNum(0)">0</button>
+        <button onclick="sum()">+</button>
+        <button onclick="subt()">-</button>
+        <br/>
+        <button onclick="divis()">/</button>
+        <button onclick="mult()">*</button>
+        <button onclick="runOperation()">=</button>
+        <br/>
+        <button onclick="cleeer('C')">C</button>
+        <button onclick="mod()">%</button>
+        <script>
+            var currentScreenValue="0";
+            var operation ="";
+            var num1 = 0;
+            function writeNum(num){
+                if(currentScreenValue=="0")
+                    currentScreenValue="";
+                display(currentScreenValue+num);
+            }
+            function cleeer(num) {
+            if (num=='C'){
+            currentScreenValue="0";
+            calcScreen.innerHTML = currentScreenValue;
+            }
+        }
+            function sum(){
+            if(operation!=""){
+                runOperation();
+            }
+            operation="+";
+            num1 = Number(currentScreenValue);
+            currentScreenValue="";
+            }
+            function subt(){
+            if(operation!=""){
+                runOperation();
+            }
+            operation="-";
+            num1 = Number(currentScreenValue);
+            currentScreenValue="";
+        }
+            function mult(){
+            if(operation!=""){
+                runOperation();
+            }
+            operation="*";
+            num1 = Number(currentScreenValue);
+            currentScreenValue="";
+        }
+        function divis(){
+            if(operation!=""){
+                runOperation();
+            }
+            operation="/";
+            num1 = Number(currentScreenValue);
+            currentScreenValue="";
+        }
+
+        function mod(){
+            if(operation!=""){
+                runOperation();
+            }
+            operation="%";
+            num1 = Number(currentScreenValue);
+            currentScreenValue="";
+            }
+
+        function runOperation(){
+            var result = 0;
+            switch(operation){
+                case "+":
+                    result = num1 + Number(currentScreenValue);
+                break;
+
+                case "-":
+                    result = num1 - Number(currentScreenValue);
+                break;
+
+                case "*":
+                    result = num1 * Number(currentScreenValue);
+                break;
+
+                case "/":
+                    result = num1 / Number(currentScreenValue);
+                break;
+     
+                case "%":
+                    result = num1 % Number(currentScreenValue);
+                break;
+            }
+            
+            operation="";
+            display(result);
+        }
+
+
+         function display(num){
+         currentScreenValue = num;
+         calcScreen.innerHTML = currentScreenValue;
+         }
+         </script>
+         </body>
+         </html>
+
