@@ -1,0 +1,58 @@
+
+<body style=  background-color:lightgreen>
+ <div class="container">
+<input type="text" id="text1" name="fname" placeholder="username"/><br></br>
+<input type="password" id="text2" name="pwd" placeholder="Password"/><br></br>
+<button id="log" onclick="insert_data()">login</button>
+
+ <div  class="next step">
+    <h4>Not Registered?<a href="https://www.facebook.com/">create an account</a></h4>
+ </div>
+<div style =display:none id="success">
+    Welcome
+</div >
+<div style =display:none id="fail">
+    Not Registered
+</div>
+</div>
+
+<style>
+    .container{
+        border: 2px green solid;
+        width:220px;
+        height:140px;
+        padding:50px;
+        position:relative;
+        top:100px;
+        left:400px;
+        background-color: white;
+    }
+
+    #text1, #text2 ,#log{
+        width:220px;
+        height:30px;
+        position:relative;
+        top:2px;
+    }
+    #log{
+        background-color: green;
+    }
+</style>
+<script>
+    var data_name=document.getElementById("text1");
+    var data_pwd=document.getElementById("text2");
+    
+   function insert_data(){
+      if(data_name.value=="admin" && data_pwd.value=="123"){
+       document.getElementById("success").style.display="block";
+       document.getElementById("fail").style.display="none";}
+
+      else
+         {document.getElementById("fail").style.display="block";
+         document.getElementById("success").style.display="none";}
+}
+
+</script>
+
+
+</body>

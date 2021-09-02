@@ -1,0 +1,115 @@
+<body>
+<div class="add_list">
+    
+        <div >
+        <ul id="data">
+        
+        <ul>
+            </div>
+
+            <hr></hr>
+            <div class="task_ad">
+               Task <input type="text" id="taskk" name="task" placeholder="Task Name"/>
+               <button style= background-color:blue; onclick="press_add()">Add</button>
+            </div>
+            <div id="disp1"></div>
+
+</div>
+<style>
+    .add_list{
+          border: lightgray solid 2px;
+          background-color: lightgray;
+          width:400px;
+          height:300px;
+          margin: auto;
+          position:relative;
+          top:70px;
+         
+
+    }
+    #data{
+          border: lightgray solid 5px;
+          background-color: white;
+          border-bottom:gray solid 2px;
+          line-height: 40px;
+          border-radius: 4px;
+          list-style: none;
+          
+    }
+
+  .btn1, .btn2{ float:right;
+                position :relative;
+                top:5px;
+                padding:3px;
+                margin-left: 10px;
+                margin-right: 10px;
+
+
+              }
+    .btn1{
+        background-color:green;
+    }    
+    
+    .btn2{
+        background-color:red;
+    }    
+
+  .task_add{ position: relative;
+             left:200px;
+
+            }
+
+  .taskDone{
+            background-color: green;
+            width:400px;
+            position: relative;
+            right:45px;
+            
+           }
+</style>
+
+    <script>
+
+           var task_list=[];
+            function display(){
+            var htmlArr =  task_list.map(function(element){
+            return"<li>"+element+"<button class='btn1' onclick='done(event)''> Mark_check </button><button class='btn2' onclick='deletee(\""+element+"\")'> Exit_check </button></li>"
+                 //"<li class='task'>"+item+"<button onclick='markDone(event)' class='taskBtn'>Done</button><button class='taskBtn' onclick='deleteTask(\""+item+"\")'>Delete</button></li>"
+            
+            })
+            var htmlCode = htmlArr.join("");
+            var taskList = document.getElementById("data");
+            taskList.innerHTML=htmlCode;
+        }
+
+                        
+       
+        var input_data=document.getElementById("taskk");
+
+        function press_add(){
+         task_list.push(input_data.value);
+          display(input_data.value);
+          input_data.value="";
+  
+                            }
+        function deletee(task_entered){
+           for(var i=0;i<task_list.length;i++){
+            if(task_list[i]==task_entered){
+            task_list.splice(i,1);
+            break;
+                                      }
+                                          }
+            display();   
+                       }
+
+        function done(e){
+            e.target.parentNode.classList.toggle("taskDone")
+
+                       }
+
+       
+
+    
+    </script>
+
+</body>
