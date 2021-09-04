@@ -1,0 +1,82 @@
+
+<body style=background-color:cadetblue>
+   
+<center>
+    <h1 style="position: relative; top:50px;"> In Love With Deer</h1>
+    <div class="picture">
+        <div class="slide_show">
+            <img id ="img1" style="width:700px;height:500px;position: relative"  src="ghazala1.jpg"/>;
+        </div>
+        <div class="slide_show">
+            <img id ="img2" style="width:700px;height:500px;position: relative"  src="ghazala2.jpg"/>;
+        </div>
+    
+        <div class="slide_show">
+            <img id ="img3" style="width:700px;height:500px;position: relative"  src="ghazala3.jpg"/>;
+        </div>
+        <div class="slide_show">
+            <img id ="img4" style="width:700px;height:500px;position: relative"  src="ghazala4.jpg"/>;
+        </div>
+        <div class="slide_show">
+            <img id ="img5" style="width:700px;height:500px;position: relative"  src="ghazala5.jpg"/>;
+        </div>
+        <a class="next" onclick="nextImg(1)"> >> Next</a>    
+        <a class="prev" onclick="nextImg(-1)"> Prev<<</a>
+        
+    </div>
+    </center>
+    
+    <style>
+    .picture{
+        position:relative;
+        top:100px;
+    }
+    .next, .prev {  
+                cursor: pointer;  
+                position: absolute;  
+                top: 50%;  
+                width: auto;  
+                padding: 16px;  
+                margin-top: -22px;  
+                color:black;  
+                font-weight: bold;  
+                font-size: 18px;  
+                transition: 0.6s ease;  
+                border-radius: 0 3px 3px 0;  
+            }  
+            .next{
+                position:relative;
+                left:387px;
+                bottom: 260px;
+                border-radius: 3px;
+            }
+            .prev{
+                position:relative;
+                right:395px;
+                bottom: 270px;
+                border-radius: 3px;
+            }
+    
+    </style>
+    <script>
+    var Index = 1;
+    displayImages(Index);
+    function nextImg(x) {
+        displayImages((Index += x));
+    }
+    function displayImages(x) {
+        var i;
+        var slides = document.getElementsByClassName('slide_show');
+        if (x > slides.length) {
+            Index = 1;
+        }
+        if (x < 1) {
+            Index = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = 'none';
+        }
+        slides[Index - 1].style.display = 'block';
+    }
+    </script>
+    </body>
