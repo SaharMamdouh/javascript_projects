@@ -1,0 +1,17 @@
+
+
+<script>
+fetch("https://reqres.in/api/users?page=2").then(function(respo_object){
+    return respo_object.json();
+}).then(function(obj){
+    var data = obj.data;
+    
+
+    var htmlArr = data.map(function(item){
+        return "<img src='"+item.avatar+"' ><h1>"+item.email+"</h1>"
+    })
+    console.log(data);
+    var htmlCode = htmlArr.join("");
+    document.body.innerHTML = htmlCode;
+});
+</script>

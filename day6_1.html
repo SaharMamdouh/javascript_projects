@@ -1,0 +1,75 @@
+<body style=  background-color:lightgreen>
+    <div class="container">
+   <input type="email" id="email1" name="fname" placeholder="Email" required/><br></br>
+   <input type="password" id="text2" name="pwd" placeholder="Password"/><br></br>
+   <button id="log" onclick="makeLogin(event)">login</button>
+   
+    <div  class="next step">
+       <h4>Not Registered?<a href="https://www.facebook.com/">create an account</a></h4>
+    </div>
+   <div style =display:none id="success">
+       Welcome
+   </div >
+   <div style =display:none id="fail">
+       Not Registered
+   </div>
+   </div>
+   
+   <style>
+       .container{
+           border: 2px green solid;
+           width:220px;
+           height:140px;
+           padding:50px;
+           position:relative;
+           top:100px;
+           left:400px;
+           background-color: white;
+       }
+   
+       #text1, #text2 ,#log{
+           width:220px;
+           height:30px;
+           position:relative;
+           top:2px;
+       }
+       #log{
+           background-color: green;
+       }
+   </style>
+   <script>
+       function makeLogin(e){
+           e.preventDefault();
+       var data_name=document.getElementById("email1");
+       var data_pwd=document.getElementById("text2");
+       var request_Body={
+            email:data_name.value,
+            password:data_pwd.value,
+       }
+      var URL="https://reqres.in/api/login";
+      fetch(URL,{
+            method:"POST",
+            headers:{
+                'content-type':"application/json"
+            },
+            body:JSON.stringify(request_Body)
+        }).then(function(resObj){
+            return resObj.json();
+        }).then(function(obj){
+            if(obj.token){
+                alert("login successfully")
+                //location.href="lec5.html"
+            }else{
+                alert(obj.error)
+            }
+        })
+    }
+
+
+       
+
+      
+   </script>
+   
+   
+   </body>
